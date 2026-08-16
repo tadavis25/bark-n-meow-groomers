@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from .models import GroomingService
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import GroomingService, Appointment
 from .forms import AppointmentForm
 from django.contrib.auth.decorators import login_required
 
@@ -11,6 +11,27 @@ def home(request):
 def services(request):
     services = GroomingService.objects.all()
     return render(request, 'services.html', {'services': services})
+
+
+@login_required
+def my_appointments(request):
+    appointments = Appointment.objects.filter(user=request.user).exclude(status='cancelled')
+    return render(request, 'my_appointments.html', {'appointments': appointments})
+
+
+@login_required
+def cancel_appointment(request, appointment_id):
+    appointment = get_object_or_404(
+        Appointment,
+        id=appointment_id,
+        user=request.user
+    )
+
+    if request.method == 'POST':
+        appointment.status = 'cancelled'
+        appointment.save()
+
+    return redirect('my_appointments')
 
 
 @login_required
