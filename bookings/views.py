@@ -16,12 +16,12 @@ def services(request):
 @login_required
 def book_appointment(request):
     if request.method == 'POST':
-        form = AppointmentForm(request.POST)
+        form = AppointmentForm(request.POST, user=request.user)
         if form.is_valid():
             appointment = form.save(commit=False)
             appointment.user = request.user
             appointment.save()
             return redirect('home')
     else:
-        form = AppointmentForm()
+        form = AppointmentForm(user=request.user)
     return render(request, 'book_appointment.html', {'form': form})
