@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import GroomingService, Appointment
-from .forms import AppointmentForm
+from .forms import AppointmentForm, PetForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
@@ -62,3 +62,19 @@ def signup(request):
         form = UserCreationForm()
 
     return render(request, "registration/signup.html", {"form": form})
+
+
+@login_required
+def add_pet(request):
+    if request.method == "POST":
+        form = PetForm(request.POST)
+
+        if form.is_valid():
+            pet = form.save(commit=False)
+            pet.owner = request.user
+            pet.save()
+            return redirect("book_appointment")
+    else:
+        form = PetForm()
+
+    return render(request, "add_pet.html", {"form": form})

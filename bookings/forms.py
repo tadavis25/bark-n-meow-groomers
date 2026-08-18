@@ -12,3 +12,16 @@ class AppointmentForm(forms.ModelForm):
         model = Appointment
         fields = ['pet', 'service', 'appointment_date', 
                   'appointment_time', 'notes', ]
+
+
+class PetForm(forms.ModelForm):
+    class Meta:
+        model = Pet
+        fields = [
+            'name',
+            'age',
+            'pet_type',
+            'size',
+            'breed',
+            'notes',
+        ]
