@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import GroomingService, Appointment
+from .models import GroomingService, Appointment, Pet
 from .forms import AppointmentForm, PetForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -80,3 +80,8 @@ def add_pet(request):
         form = PetForm()
 
     return render(request, "add_pet.html", {"form": form})
+
+@login_required
+def my_pets(request):
+    pets = Pet.objects.filter(owner=request.user)
+    return render(request, "my_pets.html", {"pets": pets})
