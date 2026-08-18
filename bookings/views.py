@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import GroomingService, Appointment
 from .forms import AppointmentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 
 def home(request):
@@ -46,3 +48,17 @@ def book_appointment(request):
     else:
         form = AppointmentForm(user=request.user)
     return render(request, 'book_appointment.html', {'form': form})
+
+
+def signup(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home")
+    else:
+        form = UserCreationForm()
+
+    return render(request, "registration/signup.html", {"form": form})
