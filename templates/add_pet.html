@@ -5,7 +5,7 @@
 <div class="container mt-5">
     <h1>Add Pet</h1>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
 

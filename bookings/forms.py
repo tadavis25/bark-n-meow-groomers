@@ -33,4 +33,5 @@ class PetForm(forms.ModelForm):
             'size',
             'breed',
             'notes',
+            'image',
         ]

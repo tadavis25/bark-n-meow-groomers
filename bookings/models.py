@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 class Pet(models.Model):
@@ -20,6 +21,7 @@ class Pet(models.Model):
     age = models.PositiveIntegerField()
     size = models.CharField(max_length=10, choices=PET_SIZES)
     notes = models.TextField(blank=True)
+    image = CloudinaryField('image', blank=True, null=True)
 
     def __str__(self):
         return self.name
