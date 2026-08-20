@@ -21,6 +21,40 @@ def my_appointments(request):
     appointments = Appointment.objects.filter(user=request.user).exclude(status='cancelled')
     return render(request, 'my_appointments.html', {'appointments': appointments})
 
+@login_required
+def edit_appointment(request, appointment_id):
+    appointment = get_object_or_404(
+        Appointment,
+        id=appointment_id,
+        user=request.user
+    )
+
+    if request.method == "POST":
+        form = AppointmentForm(
+            request.POST,
+            instance=appointment,
+            user=request.user
+        )
+
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                "Appointment updated successfully!"
+            )
+            return redirect("my_appointments")
+    else:
+        form = AppointmentForm(
+            instance=appointment,
+            user=request.user
+        )
+
+    return render(
+        request,
+        "edit_appointment.html",
+        {"form": form, "appointment": appointment}
+    )
+
 
 @login_required
 def cancel_appointment(request, appointment_id):
@@ -33,6 +67,7 @@ def cancel_appointment(request, appointment_id):
     if request.method == 'POST':
         appointment.status = 'cancelled'
         appointment.save()
+        messages.success(request, "Appointment cancelled successfully!")
 
     return redirect('my_appointments')
 
@@ -45,6 +80,7 @@ def book_appointment(request):
             appointment = form.save(commit=False)
             appointment.user = request.user
             appointment.save()
+            messages.success(request, "Appointment booked successfully!")
             return redirect('home')
     else:
         form = AppointmentForm(user=request.user)
