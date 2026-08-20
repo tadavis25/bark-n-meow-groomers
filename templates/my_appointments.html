@@ -4,7 +4,7 @@
     <h1>My Appointments</h1>
     <ul>
         {% for appointment in appointments %}
-            <li>{{ appointment.service.name }} - {{appointment.appointment_date }} at {{appointment.appointment_time }}
+            <li>{{ appointment.service.name }} - {{appointment.appointment_date }} at {{appointment.appointment_time }} - Status: {{ appointment.get_status_display }}
                 <a href="{% url 'edit_appointment' appointment.id %}" class="btn btn-primary">Edit Appointment</a>
                 <form method="post" action="{% url 'cancel_appointment' appointment.id %}">
                     {% csrf_token %}
