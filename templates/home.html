@@ -1,6 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Welcome to Bark 'n' Meow Groomers</h1>
-    <p>Professional grooming services for happy healthy cats and dogs!</p>
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+                <p class="hero-label">PET GROOMING STUDIO</p>
+
+                <h1>Your pet deserves the best care.</h1>
+
+                <p>
+                    Professional grooming for dogs and cats.
+                    Appointments available for your pet's needs.
+                </p>
+
+                <a href="{% url 'book_appointment' %}" class="btn btn-primary">
+                    Book Appointment
+                </a>
+
+                <a href="{% url 'services' %}" class="btn btn-outline-secondary">
+                    View Services
+                </a>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="hero-image-placeholder">
+                    Pet image will go here
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 {% endblock %}

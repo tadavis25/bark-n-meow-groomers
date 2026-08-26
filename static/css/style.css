@@ -1,0 +1,60 @@
+body {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.navbar-brand {
+    font-family: "Bree Serif", serif;
+}
+
+/* Hero section */
+.hero-section {
+    padding: 80px 0;
+}
+
+.hero-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.hero-section h1 {
+    font-family: "Bree Serif", serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.hero-image-placeholder {
+    min-height: 300px;
+    border: 2px dashed #D2B48C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #D2B48C;
+    border-color: #D2B48C;
+    color: #212529;
+}
+
+.btn-primary:hover {
+    background-color: #c3a47a;
+    border-color: #c3a47a;
+    color: #212529;
+}
+
+.btn-outline-secondary {
+    border-color: #D2B48C;
+    color: #212529;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #D2B48C;
+    border-color: #D2B48C;
+    color: #212529;
+}
