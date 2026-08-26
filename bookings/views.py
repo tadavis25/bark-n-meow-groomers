@@ -18,8 +18,10 @@ def services(request):
 
 @login_required
 def my_appointments(request):
-    appointments = Appointment.objects.filter(user=request.user).exclude(status='cancelled')
-    return render(request, 'my_appointments.html', {'appointments': appointments})
+    upcoming_appointments = Appointment.objects.filter(user=request.user).exclude(status__in=['cancelled', 'completed'])
+    completed_appointments = Appointment.objects.filter(user=request.user, status='completed')
+    return render(request, 'my_appointments.html', {'upcoming_appointments': upcoming_appointments, 'completed_appointments': completed_appointments})
+
 
 @login_required
 def edit_appointment(request, appointment_id):
