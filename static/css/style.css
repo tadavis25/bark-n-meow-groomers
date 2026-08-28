@@ -92,3 +92,40 @@ body {
     object-fit: cover;
     display: block;
 }
+
+.opening-hours {
+    background-color: #E8D1C8;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.opening-hours h2 {
+    font-family: "Bree Serif", serif;
+    margin-bottom: 25px;
+}
+
+.hours-list p {
+    margin-bottom: 10px;
+}
+
+.home-cta {
+    padding: 50px 0;
+}
+
+.home-cta h2 {
+    font-family: "Bree Serif", serif;
+    margin-bottom: 15px;
+}
+
+.home-cta p {
+    margin-bottom: 20px;
+}
+
+.site-footer {
+    background-color: #D2B48C;
+    padding: 25px 0;
+}
+
+.site-footer p {
+    margin: 0;
+}
