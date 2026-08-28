@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <section class="hero-section">
@@ -25,12 +26,59 @@
             </div>
 
             <div class="col-lg-6">
-                <div class="hero-image-placeholder">
-                    Pet image will go here
+                <div class="hero-image">
+                    <img src="{% static 'images/pet-salon-hero.webp' %}" alt="Dog and cat at Bark 'n' Meow Groomers">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</section>
+<section class="services-preview">
+    <div class="container">
+
+        <p class="section-label">WHAT WE OFFER</p>
+        <h2>Our Services</h2>
+
+        <div class="row g-4 mt-2">
+
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-image">
+                        Image
+                    </div>
+                    <h3>Bath & Blow Dry</h3>
+                    <p>A refreshing wash and blow dry for a clean, fresh coat.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-image">
+                        Image
+                    </div>
+                    <h3>Full Groom</h3>
+                    <p>A complete grooming service to keep your pet looking their best.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-image">
+                        Image
+                    </div>
+                    <h3>Nail Trim</h3>
+                    <p>A quick nail trim to help keep your pet comfortable.</p>
                 </div>
             </div>
 
         </div>
+
+        <a href="{% url 'services' %}" class="btn btn-outline-secondary mt-4">
+            See All Services
+        </a>
+
     </div>
 </section>
 {% endblock %}
