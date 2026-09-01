@@ -1,11 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Our Grooming Services</h1>
-        {% for service in services %}
-            <h2>{{ service.name }}</h2>
-            <p>{{ service.description }}</p>
-            <p>£{{ service.price }}</p>
-            <p>{{ service.duration }} minutes</p>
-        {% endfor %}
-{% endblock %}
+<section class="services-page">
+    <div class="container">
+
+        <p class="section-label">OUR SERVICES</p>
+        <h1>Our Grooming Services</h1>
+        <p class="services-intro">
+            All grooming is done by appointment. Prices vary by breed and coat condition.
+        </p>
+        <div class="services-list">
+            {% for service in services %}
+            <div class="service-row">
+                <div class="service-details">
+                    <h2>{{ service.name }}</h2>
+                    <p>{{ service.description }}</p>
+                </div>
+
+                <div class="service-meta">
+                    <p>{{ service.duration }} minutes</p>
+                    {% if service.name == "Full Groom" or service.name == "Bath & Blow Dry" %}
+                    <p class="service-price">From £{{ service.price }}</p>
+                    {% else %}
+                    <p class="service-price">£{{ service.price }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="text-center mt-4 mb-4">
+                <a href="{% url 'book_appointment' %}" class="btn btn-primary">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+        {% endblock %}

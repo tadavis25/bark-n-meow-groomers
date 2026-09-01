@@ -129,3 +129,65 @@ body {
 .site-footer p {
     margin: 0;
 }
+
+/* Services page */
+
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #D2B48C;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.service-details {
+    flex: 1;
+}
+
+.service-details h2 {
+    font-family: "Bree Serif", serif;
+}
+
+.service-meta {
+    text-align: right;
+    min-width: 150px;
+}
+
+.service-price {
+    font-weight: bold;
+}
+
+/* Booking page */
+
+.booking-page {
+    padding: 40px 0;
+}
+
+.booking-page form {
+    max-width: 520px;
+    padding: 30px;
+    border: 1px solid #D2B48C;
+    margin-top: 25px;
+}
+
+.booking-page form p {
+    margin-bottom: 18px;
+}
+
+.booking-page input,
+.booking-page select,
+.booking-page textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+.booking-page textarea {
+    min-height: 120px;
+    max-height: 160px;
+}
+
+.booking-page form .btn {
+    width: 100%;
+    padding: 10px;
+}
