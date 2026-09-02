@@ -225,3 +225,21 @@ body {
 .appointment-actions form {
     margin: 0;
 }
+
+.pet-card {
+    border: 1px solid #D2B48C;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.pet-card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .pet-card-content {
+        flex-direction: column;
+    }
+}

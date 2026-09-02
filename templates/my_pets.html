@@ -8,29 +8,32 @@
 
     {% if pets %}
     {% for pet in pets %}
-    <div class="mb-3">
-        <h3>{{ pet.name }}</h3>
-        {% if pet.image %}
-    <img src="{{ pet.image.url }}" width="200" alt="{{ pet.name }}">
-{% else %}
-    <img src="{% static 'images/default_pet.png' %}" width="200" alt="Default Pet Image">
-{% endif %}
-        <p>Type: {{ pet.get_pet_type_display }}</p>
-        <p>Age: {{ pet.age }}</p>
-        <p>Size: {{ pet.get_size_display }}</p>
-        <p>Breed: {{ pet.breed }}</p>
+    <div class="pet-card mb-4">
+        <div class="pet-card-content">
 
-        {% if pet.notes %}
-        <p>Notes: {{ pet.notes }}</p>
-        {% endif %}
-    
-        <a href="{% url 'edit_pet' pet.id %}" class="btn btn-primary">
-            Edit Pet
-        </a>
-        <a href="{% url 'delete_pet' pet.id %}" class="btn btn-danger">
-            Delete Pet
-        </a>
-    
+            <h3>{{ pet.name }}</h3>
+            {% if pet.image %}
+            <img src="{{ pet.image.url }}" width="200" alt="{{ pet.name }}">
+            {% else %}
+            <img src="{% static 'images/default_pet.png' %}" width="200" alt="Default Pet Image">
+            {% endif %}
+
+            <p>Type: {{ pet.get_pet_type_display }}</p>
+            <p>Age: {{ pet.age }}</p>
+            <p>Size: {{ pet.get_size_display }}</p>
+            <p>Breed: {{ pet.breed }}</p>
+
+            {% if pet.notes %}
+            <p>Notes: {{ pet.notes }}</p>
+            {% endif %}
+
+            <a href="{% url 'edit_pet' pet.id %}" class="btn btn-primary">
+                Edit Pet
+            </a>
+            <a href="{% url 'delete_pet' pet.id %}" class="btn btn-danger">
+                Delete Pet
+            </a>
+        </div>
     </div>
     {% endfor %}
     {% else %}
