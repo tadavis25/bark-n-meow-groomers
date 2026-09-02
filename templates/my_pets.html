@@ -5,6 +5,9 @@
 
 <div class="container mt-5">
     <h1>My Pets</h1>
+    <a href="{% url 'add_pet' %}" class="btn btn-primary mb-3">
+        Add Pet
+    </a>
 
     {% if pets %}
     {% for pet in pets %}

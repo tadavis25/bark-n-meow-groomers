@@ -251,3 +251,76 @@ body {
 .booking-page form {
     margin-bottom: 30px;
 }
+
+.signup-page {
+    padding: 50px 0;
+}
+
+.signup-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #D2B48C;
+    background-color: #fff;
+}
+
+.signup-card h1 {
+    margin-bottom: 25px;
+}
+
+.signup-card input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.signup-card button {
+    background-color: #D2B48C;
+    border-color: #D2B48C;
+    color: #212529;
+}
+
+.signup-card .helptext,
+.signup-card ul {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+.signup-card p {
+    margin-bottom: 18px;
+}
+
+.add-pet-page {
+    padding: 50px 0;
+}
+
+.add-pet-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #D2B48C;
+    background-color: #fff;
+}
+
+.add-pet-card h1 {
+    margin-bottom: 25px;
+}
+
+.add-pet-card input,
+.add-pet-card select,
+.add-pet-card textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.add-pet-card p {
+    margin-bottom: 18px;
+}
+
+.add-pet-card button {
+    background-color: #D2B48C;
+    border-color: #D2B48C;
+    color: #212529;
+}

@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import GroomingService, Appointment, Pet
-from .forms import AppointmentForm, PetForm
+from .forms import AppointmentForm, PetForm, SignUpForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib import messages
 
@@ -91,7 +90,7 @@ def book_appointment(request):
 
 def signup(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
 
         if form.is_valid():
             user = form.save()
@@ -99,7 +98,7 @@ def signup(request):
             login(request, user)
             return redirect("home")
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
 
     return render(request, "registration/signup.html", {"form": form})
 
