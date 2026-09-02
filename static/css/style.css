@@ -243,3 +243,11 @@ body {
         flex-direction: column;
     }
 }
+
+.booking-page h1 {
+    margin-bottom: 25px;
+}
+
+.booking-page form {
+    margin-bottom: 30px;
+}
