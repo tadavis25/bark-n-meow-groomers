@@ -191,3 +191,37 @@ body {
     width: 100%;
     padding: 10px;
 }
+
+/* My Appointments page */
+
+.appointments-page {
+    padding: 40px 0;
+}
+
+.appointments-page h2 {
+    font-family: "Bree Serif", serif;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.appointment-card {
+    list-style: none;
+    border: 1px solid #D2B48C;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.appointments-page ul {
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.appointment-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.appointment-actions form {
+    margin: 0;
+}

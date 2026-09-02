@@ -1,35 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>My Appointments</h1>
-<h2>Upcoming Appointments</h2>
-<ul>
-    {% for appointment in upcoming_appointments %}
-    <li>{{appointment.pet.name }} - {{ appointment.service.name }} - {{appointment.appointment_date }} at {{appointment.appointment_time }} -
-        Status: {{ appointment.get_status_display }}
-        {% if appointment.notes %}
-        <p>Notes: {{ appointment.notes }}</p>
-        {% endif %}
-        <a href="{% url 'edit_appointment' appointment.id %}" class="btn btn-primary">Edit Appointment</a>
-        <form method="post" action="{% url 'cancel_appointment' appointment.id %}">
-            {% csrf_token %}
-            <button type="submit" onclick="return confirm('Are you sure you want to cancel this appointment?');">Cancel
-                Appointment</button>
-        </form>
-    </li>
-    {% endfor %}
-</ul>
-<h2>Completed Appointments</h2>
+<section class="appointments-page">
+    <div class="container">
+        <p class="section-label">YOUR BOOKINGS</p>
+        <h1>My Appointments</h1>
+        <h2>Upcoming Appointments</h2>
+        <ul>
+            {% for appointment in upcoming_appointments %}
+            <li class="appointment-card">
+                {{appointment.pet.name }} - {{ appointment.service.name }} - {{appointment.appointment_date }} at
+                {{appointment.appointment_time }} -
+                Status: {{ appointment.get_status_display }}
+                {% if appointment.notes %}
+                <p>Notes: {{ appointment.notes }}</p>
+                {% endif %}
 
-<ul>
-    {% for appointment in completed_appointments %}
-    <li>
-        {{ appointment.pet.name }} -
-        {{ appointment.service.name }} -
-        {{ appointment.appointment_date }}
-    </li>
-    {% empty %}
-    <li>No completed appointments yet.</li>
-    {% endfor %}
-</ul>
+                <div class="appointment-actions">
+                    <a href="{% url 'edit_appointment' appointment.id %}" class="btn btn-primary">Edit Appointment</a>
+                    <form method="post" action="{% url 'cancel_appointment' appointment.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-secondary"
+                            onclick="return confirm('Are you sure you want to cancel this appointment?');">Cancel
+                            Appointment</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <h2>Completed Appointments</h2>
+
+        <ul>
+            {% for appointment in completed_appointments %}
+            <li class="appointment-card completed-card">
+                {{ appointment.pet.name }} -
+                {{ appointment.service.name }} -
+                {{ appointment.appointment_date }}
+            </li>
+            {% empty %}
+            <li>No completed appointments yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
 {% endblock %}
