@@ -337,3 +337,21 @@ body {
     border-color: #D2B48C;
     color: #212529;
 }
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: #212529;
+    font-size: 24px;
+    margin: 0 8px;
+    text-decoration: none;  
+}
+
+.social-links a:hover {
+    opacity: 0.7;
+}
