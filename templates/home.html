@@ -15,24 +15,27 @@
                     Professional grooming for dogs and cats.
                     Appointments available for your pet's needs.
                 </p>
+            
+                    <div class="hero-buttons">
+                        <a href="{% url 'book_appointment' %}" class="btn btn-primary">
+                            Book Appointment
+                        </a>
 
-                <a href="{% url 'book_appointment' %}" class="btn btn-primary">
-                    Book Appointment
-                </a>
+                        <a href="{% url 'services' %}" class="btn btn-outline-secondary">
+                            View Services
+                        </a>
+                    </div>
+                </div>
 
-                <a href="{% url 'services' %}" class="btn btn-outline-secondary">
-                    View Services
-                </a>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="hero-image">
-                    <img src="{% static 'images/pet-salon-hero.webp' %}" alt="Dog and cat at Bark 'n' Meow Groomers">
+                    <div class="col-lg-6 mt-3">
+                        <div class="hero-image">
+                            <img src="{% static 'images/pet-salon-hero.webp' %}"
+                                alt="Dog and cat at Bark 'n' Meow Groomers">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 </section>
 <section class="services-preview">
     <div class="container">
