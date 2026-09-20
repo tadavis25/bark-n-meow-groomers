@@ -150,7 +150,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #D2B48C;
+    border: 5px solid #D2B48C;
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -274,7 +274,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
-    border: 1px solid #D2B48C;
+    border: 5px solid #D2B48C;
     background-color: #fff;
 }
 
