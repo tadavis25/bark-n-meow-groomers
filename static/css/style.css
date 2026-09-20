@@ -363,3 +363,23 @@ body {
         align-items: flex-start;
     }
 }
+
+/* 404 Page */
+
+.error-page {
+    padding: 100px 20px;
+}
+
+.error-page h1 {
+    font-size: 5rem;
+    color: #D2B48C;
+    margin-bottom: 10px;
+}
+
+.error-page h2 {
+    margin-bottom: 20px;
+}
+
+.error-page p {
+    margin-bottom: 30px;
+}
