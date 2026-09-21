@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cloudinary %}
 
 {% block content %}
 
@@ -16,7 +17,7 @@
 
             <h3>{{ pet.name }}</h3>
             {% if pet.image %}
-            <img src="{{ pet.image.url }}?f_auto,q_auto,w_500" width="200" alt="{{ pet.name }}">
+            {% cloudinary pet.image width=500 crop="limit" fetch_format="auto" quality="auto" alt=pet.name %}
             {% else %}
             <img src="{% static 'images/default_pet.png' %}" width="200" alt="Default Pet Image">
             {% endif %}
