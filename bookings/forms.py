@@ -60,6 +60,14 @@ class SignUpForm(UserCreationForm):
     last_name = forms.CharField(max_length=150, required=True)
     email = forms.EmailField(required=True)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['password1'].help_text = (
+            "Your password must contain at least 8 characters, "
+            "cannot be entirely numeric, and should not be too common "
+            "or too similar to your personal information."
+        )
+
     class Meta:
         model = User
         fields = [
