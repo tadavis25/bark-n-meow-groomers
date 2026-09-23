@@ -25,7 +25,7 @@ class AppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
-        fields = ['pet', 'service', 'appointment_date', 
+        fields = ['pet', 'service', 'appointment_date',
                   'appointment_time', 'notes', ]
 
     widgets = {
@@ -36,7 +36,8 @@ class AppointmentForm(forms.ModelForm):
         appointment_date = self.cleaned_data["appointment_date"]
 
         if appointment_date < timezone.localdate():
-            raise forms.ValidationError("Appointment date cannot be in the past.")
+            raise forms.ValidationError(
+                "The appointment date cannot be in the past.")
 
         return appointment_date
 

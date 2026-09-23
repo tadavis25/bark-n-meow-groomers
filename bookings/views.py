@@ -17,9 +17,25 @@ def services(request):
 
 @login_required
 def my_appointments(request):
-    upcoming_appointments = Appointment.objects.filter(user=request.user).exclude(status__in=['cancelled', 'completed'])
-    completed_appointments = Appointment.objects.filter(user=request.user, status='completed')
-    return render(request, 'my_appointments.html', {'upcoming_appointments': upcoming_appointments, 'completed_appointments': completed_appointments})
+    upcoming_appointments = Appointment.objects.filter(
+        user=request.user
+    ).exclude(
+        status__in=['cancelled', 'completed']
+    )
+
+    completed_appointments = Appointment.objects.filter(
+        user=request.user,
+        status='completed'
+    )
+
+    return render(
+        request,
+        'my_appointments.html',
+        {
+            'upcoming_appointments': upcoming_appointments,
+            'completed_appointments': completed_appointments,
+        }
+    )
 
 
 @login_required
@@ -118,6 +134,7 @@ def add_pet(request):
 
     return render(request, "add_pet.html", {"form": form})
 
+
 @login_required
 def my_pets(request):
     pets = Pet.objects.filter(owner=request.user)
@@ -139,6 +156,7 @@ def edit_pet(request, pet_id):
         form = PetForm(instance=pet)
 
     return render(request, "edit_pet.html", {"form": form, "pet": pet})
+
 
 @login_required
 def delete_pet(request, pet_id):
