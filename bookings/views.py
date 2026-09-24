@@ -4,6 +4,7 @@ from .forms import AppointmentForm, PetForm, SignUpForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib import messages
+from django.utils import timezone
 
 
 def home(request):
@@ -17,25 +18,34 @@ def services(request):
 
 @login_required
 def my_appointments(request):
-    upcoming_appointments = Appointment.objects.filter(
-        user=request.user
-    ).exclude(
-        status__in=['cancelled', 'completed']
-    )
-
-    completed_appointments = Appointment.objects.filter(
+        Appointment.objects.filter(
         user=request.user,
+        appointment_date__lt=timezone.localdate()
+    ).exclude(
+        status='cancelled'
+    ).update(
         status='completed'
     )
+        
+        upcoming_appointments = Appointment.objects.filter(
+                user=request.user
+            ).exclude(
+                status__in=['cancelled', 'completed']
+            )
 
-    return render(
-        request,
-        'my_appointments.html',
-        {
-            'upcoming_appointments': upcoming_appointments,
-            'completed_appointments': completed_appointments,
-        }
-    )
+        completed_appointments = Appointment.objects.filter(
+                user=request.user,
+                status='completed'
+            )
+
+        return render(
+            request,
+            'my_appointments.html',
+            {
+                'upcoming_appointments': upcoming_appointments,
+                'completed_appointments': completed_appointments,
+            }
+        )
 
 
 @login_required
